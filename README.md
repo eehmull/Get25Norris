@@ -5,6 +5,11 @@ para facilidad de crear el endpoint necesario, este contiene un endpoint
 que obtiene de una API una lista de 25 elementos únicos. 
 Utilizando hilos para obtener la data con mayor rapidez.
 
+El Main del proyecto se encuentra en `src/main/java/com/eehmull/testCode/testCodeApplication.java`
+
+El Main hace un llamado a un resource, que es donde se encuentra
+la mayor parte del código, ubicado en `src/main/java/com/eehmull/testCode/resources/ChuckNorrisResource.java`
+
 Como iniciar la aplicación del testCode
 ---
 1. Descargar el repositorio. En el root del proyecto viene un archivo Dockerfile para ejecutar el proyecto.
