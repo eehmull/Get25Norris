@@ -3,7 +3,7 @@ package com.eehmull.testCode.threads;
 import com.eehmull.testCode.controller.ChuckNorrisController;
 import com.eehmull.testCode.models.ChuckNorris;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 /**
  *
@@ -11,12 +11,14 @@ import java.util.stream.Collectors;
  */
 public class Proceso1 extends Thread {
 
-    private List<ChuckNorris> listNorris;
+    private Set<ChuckNorris> listNorris;
     private ChuckNorrisController controller;
+    private final Integer value;
 
-    public Proceso1(List<ChuckNorris> listNorris, ChuckNorrisController controller) {
+    public Proceso1(Set<ChuckNorris> listNorris, ChuckNorrisController controller, Integer value) {
         this.listNorris = listNorris;
         this.controller = controller;
+        this.value = value;
     }
 
     @Override
@@ -24,14 +26,13 @@ public class Proceso1 extends Thread {
         boolean flag = true;
         while (flag) {
             this.listNorris.add(controller.getDataJsonApi());
-            if (listNorris.size() == 10) {
-//                this.listNorris = listNorris.stream().distinct().collect(Collectors.toList());
+            if (listNorris.size() == value) {
                 flag = false;
             }
         }
     }
 
-    public List<ChuckNorris> getListNorris() {
+    public Set<ChuckNorris> getListNorris() {
         return listNorris;
     }
 }
